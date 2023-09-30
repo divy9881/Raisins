@@ -1,0 +1,34 @@
+{
+  "name": "raisins",
+  "version": "1.0.0",
+  "description": "Raisin(g)s - Blockchain Hackathon: Crowd Funding/Raising DApp",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/divy9881/Raisins.git"
+  },
+  "keywords": [
+    "DApp",
+    "React",
+    "Ethereum",
+    "HardHat",
+    "Alchemy"
+  ],
+  "author": "Divy Patel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/divy9881/Raisins/issues"
+  },
+  "homepage": "https://github.com/divy9881/Raisins#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-router-dom": "^6.16.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "hardhat": "^2.17.4"
+  }
+}
