@@ -7,27 +7,25 @@
 const hre = require("hardhat");
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
+  // Hardhat always runs the compile task when running scripts with its command
+  // line interface.
 
-  const lockedAmount = hre.ethers.parseEther("0.001");
+  // We get the contract to deploy in the contracts folder for Greeter.sol
 
-  const lock = await hre.ethers.deployContract("Lock", [unlockTime], {
-    value: lockedAmount,
-  });
+  const Campaigns = await hre.ethers.getContractFactory("Campaigns"); // obtain object
+  const campaigns = await Campaigns.deploy(); // deploy with a string constructor
 
-  await lock.waitForDeployment();
+  await campaigns.deployed(); // wait for contract to be deployed
 
-  console.log(
-    `Lock with ${ethers.formatEther(
-      lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
-  );
+  console.log("Campaigns deployed to:", campaigns.address);
 }
+
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
