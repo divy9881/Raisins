@@ -9,6 +9,7 @@ import RaisinsNavbar from './RaisinsNavbar'
 import RaisinsSidebar from './RaisinsSidebar';
 import RaisinsDashboard from './RaisinsDashboard';
 import RaisinsRunCampaign from './RaisinsRunCampaign';
+import RaisinsFundCampaigns from './RaisinsFundCampaigns';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<RaisinsDashboard/>}/>
             <Route exact path="/run-campaign" element={<RaisinsRunCampaign/>}/>
+            <Route exact path="/fund-campaign" element={<RaisinsFundCampaigns/>}/>
           </Routes>
         </BrowserRouter>
       </Layout>

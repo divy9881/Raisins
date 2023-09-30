@@ -9,6 +9,7 @@ contract Campaigns {
         string display;
         string website;
         string details;
+        uint64 target;
     }
 
     Campaign[] public campaigns;
@@ -17,9 +18,22 @@ contract Campaigns {
         console.log("Deploying a Campaign contract\n");
     }
 
-    function runCampaign(string memory _name, string memory _display, string memory _website, string memory _details) public {
+    function runCampaign(string memory _name, string memory _display, string memory _website, string memory _details, uint64 target) public {
         // console.log("Adding campaign '%s' : '%s' : '%s' : '%s'", _name, _display, _website, _details);
-        campaigns.push(Campaign(_name, _display, _website, _details));
+        campaigns.push(Campaign(_name, _display, _website, _details, target));
+    }
+
+    function getCampaigns() public view returns (Campaign[] memory) {
+        return campaigns;
+    }
+
+    // removes warnings
+    fallback() external payable {
+
+    }
+
+    receive() external payable {
+
     }
     // address payable public owner;
 

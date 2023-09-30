@@ -1,23 +1,33 @@
 import React, { useState } from 'react';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Radio, Tag, Layout } from 'antd';
+import { ethers } from 'ethers';
 
-const customizeRequiredMark = (label, { required }) => (
-  <>
-    {required ? <Tag color="error">Required</Tag> : <Tag color="warning">optional</Tag>}
-    {label}
-  </>
-);
+import ContractConfigs from "./configs";
+
+let Address = ContractConfigs['Address'];
+let CampaignsContractABI = ContractConfigs['CampaignsContractABI'];
 
 let state = {
     name: "",
     website: "",
     details: "",
-    display: ""
+    display: "",
+    target: 0,
 }
 
+async function runCampaign(state) {
+    if (typeof window.ethereum !== 'undefined') {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = await provider.getSigner();
+        const contract = new ethers.Contract(Address, CampaignsContractABI.abi, signer);
+
+        const transaction = await contract.runCampaign(state.name, state.display, state.website, state.details, parseInt(state.target));
+        await transaction.wait();
+    }
+  }
+
 function change(e) {
-    console.log("hello");
     console.log(e.target.name, e.target.value)
     state[e.target.name] = e.target.value;
 }
@@ -25,6 +35,7 @@ function change(e) {
 function submit(e) {
     e.preventDefault();
     console.log(state);
+    runCampaign(state);
 };
 
 function RaisinsRunCampaign() {
@@ -54,6 +65,9 @@ function RaisinsRunCampaign() {
             </Form.Item>
             <Form.Item label="Website" required tooltip="This is a required field">
                 <Input name="website" placeholder="Link to the Website for the Campaign: https://<my-campaign.com>" onChange={change}/>
+            </Form.Item>
+            <Form.Item label="Target" required tooltip="This is a required field">
+                <Input name="target" placeholder="Target funds to be raised" onChange={change}/>
             </Form.Item>
             <Form.Item
                 label="More Details"

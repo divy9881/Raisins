@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\Patron\\Documents\\Raisins\\contracts\\Campaigns.sol": {
-      "lastModificationDate": 1696101840165,
-      "contentHash": "dfa3f10a8cde580c4534afd6ba30ee0d",
+      "lastModificationDate": 1696112004022,
+      "contentHash": "0669a1f00dbcda303ca157c16295356f",
       "sourceName": "contracts/Campaigns.sol",
       "solcConfig": {
         "version": "0.8.19",
@@ -39,7 +39,7 @@
       ]
     },
     "C:\\Users\\Patron\\Documents\\Raisins\\node_modules\\hardhat\\console.sol": {
-      "lastModificationDate": 1696101285823,
+      "lastModificationDate": 1696103868776,
       "contentHash": "896f68942c3a20e9ae3c3c5bfd3add54",
       "sourceName": "hardhat/console.sol",
       "solcConfig": {

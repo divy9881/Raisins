@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/divy9881/Raisins#readme",
   "dependencies": {
+    "@metamask/detect-provider": "^2.0.0",
+    "@metamask/onboarding": "^1.0.1",
     "react": "^18.2.0",
     "react-router-dom": "^6.16.0"
   },
