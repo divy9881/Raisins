@@ -1,5 +1,5 @@
 # Raisins
-Raisin(g)s - Blockchain Hackathon: Crowd Funding/Raising DApp 
+Raisin(g)s - Blockchain Hackathon: Crowd Funding/Raising DApp
 
 
 
